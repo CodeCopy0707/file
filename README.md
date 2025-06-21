@@ -51,8 +51,7 @@ A comprehensive Node.js-based server application that functions as a personal fi
 
 ## Default Credentials
 
-- **Username**: `sunny`
-- **Password**: `SANDEEP1717a`
+s
 
 ## API Endpoints
 
