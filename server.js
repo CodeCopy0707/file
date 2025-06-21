@@ -325,11 +325,13 @@ app.delete("/api/notes/:id", requireAuth, (req, res) => {
   }
 })
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`File Management Server running on port ${PORT}`)
-  console.log(`Access the application at: http://localhost:${PORT}`)
-  
-})
-
+// For Vercel/Netlify deployment, the app should be exported directly.
+// The server will not listen on a port in a serverless environment.
+//
+// IMPORTANT NOTE ON SERVERLESS DEPLOYMENT:
+// Features relying on local file system operations (uploads, notes)
+// and in-memory state (sessions, global.shareMap) will NOT persist
+// across invocations or instances in a serverless environment (like Vercel/Netlify).
+// For full functionality, you MUST integrate with external persistent storage
+// (e.g., AWS S3 for files, a database for notes and sessions).
 module.exports = app
